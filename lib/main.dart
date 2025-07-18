@@ -34,14 +34,14 @@ setCurrentindex(int index){
           title: [
           Text( ' Accueil', style: TextStyle(color: Colors.white)),
           Text( ' liste des conferences', style: TextStyle(color: Colors.white)  ),
-          Text( 'Formulaire d ajout', style: TextStyle(color: Colors.white),  ),
+          Text( 'Formulaire d ajout', style: TextStyle(color: const Color.fromARGB(255, 165, 22, 22)),  ),
           ][_currentIndex]
             ),
 
              body: [
               HomePage(),
               EventPage(),
-              AddEventPage()
+              AddEventPage(),
              ][_currentIndex ]
 ,
              bottomNavigationBar: BottomNavigationBar(
