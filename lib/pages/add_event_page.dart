@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 
 class AddEventPage extends StatefulWidget {
@@ -11,8 +12,10 @@ class _AddEventPageState extends State<AddEventPage> {
 
   final _formkey = GlobalKey<FormState>();
 
+  final titlleController = TextEditingController();
+  final subtitlleController = TextEditingController();
 
-  @override
+   @override
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.all(20),
@@ -34,6 +37,24 @@ class _AddEventPageState extends State<AddEventPage> {
                     }
                     return null;
                   },
+                  controller: titlleController,
+              ),
+            ),
+             Container(
+              margin: EdgeInsets.only(bottom: 10),
+              child: TextFormField(
+                decoration: InputDecoration(
+                  labelText: 'subtitle de la conference',
+                  hintText: "entrer le intituler de la conference",
+                  border: OutlineInputBorder(),
+                  ),
+                  validator: (value){
+                    if (value == null || value.isEmpty){
+                      return "tu dois completer ce texte";
+                    }
+                    return null;
+                  },
+                  controller: subtitlleController,
               ),
             ),
             SizedBox(
@@ -44,9 +65,14 @@ class _AddEventPageState extends State<AddEventPage> {
                 
                 onPressed: () {
                   if(_formkey.currentState!.validate()){
+                    // ignore: unused_local_variable
+                    final title = titlleController.text;
+                    // ignore: unused_local_variable
+                    final subtitle = subtitlleController.text;
                     ScaffoldMessenger.of(context).showSnackBar(
                      const SnackBar(content: Text("envoi en cours"))
                     );
+                    
                   }
                 },
                child: Text("Envoyer")
