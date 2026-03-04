@@ -65,9 +65,7 @@ class _AddEventPageState extends State<AddEventPage> {
                 
                 onPressed: () {
                   if(_formkey.currentState!.validate()){
-                    // ignore: unused_local_variable
                     final title = titlleController.text;
-                    // ignore: unused_local_variable
                     final subtitle = subtitlleController.text;
                     ScaffoldMessenger.of(context).showSnackBar(
                      const SnackBar(content: Text("envoi en cours"))
