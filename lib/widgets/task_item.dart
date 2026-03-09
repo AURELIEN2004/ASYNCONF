@@ -5,53 +5,63 @@ class TaskItem extends StatelessWidget {
 
   final Task task;
   final VoidCallback onDelete;
+  final VoidCallback onToggle;
   final VoidCallback onEdit;
-  final Function(bool?) onToggle;
 
   const TaskItem({
     super.key,
     required this.task,
     required this.onDelete,
-    required this.onEdit,
     required this.onToggle,
+    required this.onEdit,
   });
 
   @override
   Widget build(BuildContext context) {
 
     return Card(
-      elevation: 3,
-      margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 10),
-
+      margin: const EdgeInsets.all(10),
       child: ListTile(
 
         leading: Checkbox(
           value: task.isDone,
-          onChanged: onToggle,
+          onChanged: (value) {
+            onToggle();
+          },
         ),
 
         title: Text(
           task.title,
           style: TextStyle(
-            fontWeight: FontWeight.bold,
             decoration:
-                task.isDone ? TextDecoration.lineThrough : null,
+                task.isDone ? TextDecoration.lineThrough : TextDecoration.none,
           ),
         ),
 
-        subtitle: Text(task.description),
+        subtitle: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(task.description),
+           Text(
+  task.date != null
+      ? "${task.date.day}/${task.date.month}/${task.date.year}"
+      : "Pas de date",
+  style: const TextStyle(color: Colors.grey),
+),
+          ],
+        ),
 
         trailing: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
 
             IconButton(
-              icon: const Icon(Icons.edit, color: Colors.blue),
+              icon: const Icon(Icons.edit),
               onPressed: onEdit,
             ),
 
             IconButton(
-              icon: const Icon(Icons.delete, color: Colors.red),
+              icon: const Icon(Icons.delete),
               onPressed: onDelete,
             ),
           ],
