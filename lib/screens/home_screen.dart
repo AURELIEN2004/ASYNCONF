@@ -198,7 +198,7 @@ class _HomeScreenState extends State<HomeScreen> {
     setState(() {
       _notificationsPlugin.cancel(index);
       _tasks.removeAt(index);
-      _saveTasks();
+      _saveTasks();  
     });
   }
 
@@ -268,9 +268,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   task: task,
                   onDelete: () => _deleteTask(index),
                   onToggle: () => _toggleTask(index),
-                  onEdit: () {
-                    // Logique d'édition...
-                  },
+                  onEdit:   () => _openEditTask(index)
+                  
                 );
               },
             ),
