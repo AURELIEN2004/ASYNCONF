@@ -255,8 +255,8 @@ class _HomeScreenState extends State<HomeScreen> {
               const PopupMenuItem(value: 'date', child: Text("Trier par date")),
               const PopupMenuItem(value: 'alpha', child: Text("Trier par titre")),
             ],
-          ),
-        ],
+          ), 
+        ], 
       ),
       body: _filteredTasks.isEmpty
           ? const Center(child: Text("Aucune tâche trouvée"))
