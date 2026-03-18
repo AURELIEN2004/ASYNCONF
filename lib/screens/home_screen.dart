@@ -268,7 +268,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   task: task,
                   onDelete: () => _deleteTask(index),
                   onToggle: () => _toggleTask(index),
-                  onEdit:   () => _openEditTask(index)
+                  // onEdit:   () => _openEditTask(index)
                   
                 );
               },
