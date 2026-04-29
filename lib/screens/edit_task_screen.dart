@@ -18,7 +18,7 @@ class _EditTaskScreenState extends State<EditTaskScreen> {
  
   @override 
   void initState() {
-
+  
     titleController =
         TextEditingController(text: widget.task.title);
 
