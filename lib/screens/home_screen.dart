@@ -193,7 +193,10 @@ class _HomeScreenState extends State<HomeScreen> {
       _scheduleNotification(task, _tasks.length);
     });
   }
-
+// Ajoute ceci dans ta classe _HomeScreenState
+void _openEditTask(int index) {
+  print("Édition de la tâche $index");
+}
   void _deleteTask(int index) {
     setState(() {
       _notificationsPlugin.cancel(index);
